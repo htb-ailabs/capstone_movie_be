@@ -1,26 +1,68 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTiketDto } from './dto/create-tiket.dto';
 import { UpdateTiketDto } from './dto/update-tiket.dto';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class TiketService {
-  create(createTiketDto: CreateTiketDto) {
-    return 'This action adds a new tiket';
+  constructor(public prisma: PrismaService) {}
+
+  async create(createTiketDto: CreateTiketDto) {
+    try {
+      const { tai_khoan, ma_ghe, ma_lich_chieu } = createTiketDto;
+      return await this.prisma.datve.create({
+        data: { tai_khoan, ma_ghe, ma_lich_chieu },
+      });
+    } catch (error: unknown) {
+      return error;
+    }
   }
 
-  findAll() {
-    return `This action returns all tiket`;
+  async findAll() {
+    try {
+      return await this.prisma.datve.findMany();
+    } catch (error: unknown) {
+      return error;
+    }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tiket`;
+  async findOne(id: number) {
+    try {
+      const tiket = await this.prisma.datve.findFirst({
+        where: { ma_ve: id },
+      });
+
+      if (!tiket) throw new NotFoundException(`No tiket`);
+      return tiket;
+    } catch (error: unknown) {
+      return error;
+    }
   }
 
-  update(id: number, updateTiketDto: UpdateTiketDto) {
-    return `This action updates a #${id} tiket`;
+  async update(id: number, updateTiketDto: UpdateTiketDto) {
+    try {
+      const { ma_ghe, ma_lich_chieu, tai_khoan } = updateTiketDto;
+      const tiketUpdate = await this.prisma.datve.update({
+        where: { ma_ve: id },
+        data: { ma_ghe, ma_lich_chieu, tai_khoan },
+      });
+
+      if (!tiketUpdate) throw new NotFoundException(`No tiket updated`);
+      return tiketUpdate;
+    } catch (error: unknown) {
+      return error;
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tiket`;
+  async remove(id: number) {
+    try {
+      return await this.prisma.datve.delete({
+        where: {
+          ma_ve: id,
+        },
+      });
+    } catch (error: unknown) {
+      return error;
+    }
   }
 }

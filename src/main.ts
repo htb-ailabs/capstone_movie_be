@@ -1,14 +1,15 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
-import { HttpExceptionFilter } from './common/helpers/http-exception.filter';
+
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { NotFoundExceptionFilter } from './common/helpers/not-found.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   console.log(process.env.PORT);
   app.useGlobalPipes(new ValidationPipe()); // ✅ Enable validation
-  app.useGlobalFilters(new HttpExceptionFilter());
+  app.useGlobalFilters(new NotFoundExceptionFilter()); // Global filter
 
   //CORS
   app.enableCors({

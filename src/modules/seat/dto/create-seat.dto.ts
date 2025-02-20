@@ -1,10 +1,13 @@
 import { Optional } from '@nestjs/common';
 import { IsString } from 'class-validator';
 
-export class CreateCinemaDto {
+export class CreateSeatDto {
   @IsString()
-  ten_rap: string;
+  ten_ghe: string;
+
+  @IsString()
+  loai_ghe: string;
 
   @Optional()
-  ma_cum_rap?: number;
+  ma_rap: number;
 }
