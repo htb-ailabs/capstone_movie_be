@@ -1,0 +1,568 @@
+{
+	"info": {
+		"_postman_id": "08f2d100-e64f-4e3d-9d0b-315c514eaca9",
+		"name": "node_46_movie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13008860"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "get-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}user",
+							"host": [
+								"{{domain}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}user/15",
+							"host": [
+								"{{domain}}user"
+							],
+							"path": [
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ho_ten\": \"hau tran 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}user/search",
+							"host": [
+								"{{domain}}user"
+							],
+							"path": [
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ho_ten\":\"hau tran 2\",\r\n    \"email\":\"hautb_2@abc.com\",\r\n    \"mat_khau\":\"123\",\r\n    \"so_dt\": \"19002034\",\r\n    \"loai_nguoi_dung\":\"customer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}user",
+							"host": [
+								"{{domain}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"email\":\"hautb_1@abc.com\",\r\n    \"mat_khau\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}user/login",
+							"host": [
+								"{{domain}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}user/logout/1",
+							"host": [
+								"{{domain}}user"
+							],
+							"path": [
+								"logout",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ho_ten\":\"hau tran 22\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}user/11",
+							"host": [
+								"{{domain}}user"
+							],
+							"path": [
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}user/12",
+							"host": [
+								"{{domain}}user"
+							],
+							"path": [
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movie",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ten_phim\": \"Đa vũ trụ 3\",\r\n    \"mo_ta\": \"Phim hay hiệu ứng đẹp, nói về khoa học viễn tưởng tương lai 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}movie",
+							"host": [
+								"{{domain}}movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ten_phim\": \"Đa vũ trụ 300\",\r\n    \"mo_ta\": \"Phim hay hiệu ứng đẹp, nói về khoa học viễn tưởng tương lai 3\",\r\n    \"hot\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}movie/100",
+							"host": [
+								"{{domain}}movie"
+							],
+							"path": [
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}movie/search?ten_phim=2",
+							"host": [
+								"{{domain}}movie"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "ten_phim",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}movie",
+							"host": [
+								"{{domain}}movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}movie/1",
+							"host": [
+								"{{domain}}movie"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}movie/1",
+							"host": [
+								"{{domain}}movie"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cinema",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}cinema",
+							"host": [
+								"{{domain}}cinema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schedule",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}cinema/schedule",
+							"host": [
+								"{{domain}}cinema"
+							],
+							"path": [
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "groupcinema",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}cinema/groupcinema",
+							"host": [
+								"{{domain}}cinema"
+							],
+							"path": [
+								"groupcinema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}cinema/1",
+							"host": [
+								"{{domain}}cinema"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ten_rap\": \"rap lotte\",\r\n    \"ma_cum_rap\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}cinema/1",
+							"host": [
+								"{{domain}}cinema"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ten_rap\":\"sân khấu kịch 5b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}cinema",
+							"host": [
+								"{{domain}}cinema"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schedule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"ma_rap\": 1,\r\n\"ma_phim\": 3,\r\n\"gia_ve\":2500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}cinema/schedule",
+							"host": [
+								"{{domain}}cinema"
+							],
+							"path": [
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"ten_cum_rap\":\"sân khấu kịch vân sơn\",\r\n\"dia_chi\": \"200 trần hưng đạo, hcmc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}cinema/groupCinema",
+							"host": [
+								"{{domain}}cinema"
+							],
+							"path": [
+								"groupCinema"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "seat",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ten_ghe\":\"4A\",\r\n    \"loai_ghe\": \"A\",\r\n    \"ma_rap\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}seat",
+							"host": [
+								"{{domain}}seat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}seat",
+							"host": [
+								"{{domain}}seat"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tiket",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tai_khoan\": 16,\r\n    \"ma_lich_chieu\": 2,\r\n    \"ma_ghe\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}tiket",
+							"host": [
+								"{{domain}}tiket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}tiket/5",
+							"host": [
+								"{{domain}}tiket"
+							],
+							"path": [
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
